@@ -1,3 +1,4 @@
+import RxCocoa
 import RxSwift
 import UIKit
 
@@ -22,5 +23,9 @@ public final class LoginViewController: UIViewController {
             loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
+        loginButton.rx.tap
+            .subscribe(onNext: { _ in
+                print("Tapp")
+            }).disposed(by: disposeBag)
     }
 }
