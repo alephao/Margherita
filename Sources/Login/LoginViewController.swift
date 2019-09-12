@@ -1,6 +1,9 @@
+import RxSwift
 import UIKit
 
 public final class LoginViewController: UIViewController {
+    private let disposeBag = DisposeBag()
+
     public init() {
         super.init(nibName: nil, bundle: nil)
     }
