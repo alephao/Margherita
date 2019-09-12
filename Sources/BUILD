@@ -2,9 +2,16 @@ load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
 load("@build_bazel_rules_apple//apple:ios.bzl", "ios_application")
 
 swift_library(
+    name = "Login",
+    srcs = glob(["Login/*.swift"]),
+    module_name = "Login",
+)
+
+swift_library(
     name = "Margherita",
     srcs = glob(["Margherita/*.swift"]),
     module_name = "Margherita",
+    deps = [":Login"],
 )
 
 ios_application(

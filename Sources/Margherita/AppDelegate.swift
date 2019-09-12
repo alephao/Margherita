@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Login
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let window = UIWindow()
-        window.rootViewController = ViewController()
+        window.rootViewController = LoginViewController()
         window.makeKeyAndVisible()
         self.window = window
         return true
