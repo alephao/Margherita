@@ -6,6 +6,18 @@ import UIKit
 public final class LoginViewController: UIViewController {
     private let disposeBag = DisposeBag()
 
+    private let usernameTextField: UITextField = {
+        let e = UITextField()
+        e.placeholder = "Username"
+        return e
+    }()
+
+    private let passwordTextField: UITextField = {
+        let e = UITextField()
+        e.placeholder = "Password"
+        return e
+    }()
+
     private let loginButton: UIButton = {
         let e = UIButton(type: .system)
         e.setTitle("Login", for: .normal)
@@ -28,12 +40,13 @@ public final class LoginViewController: UIViewController {
             make.center.equalToSuperview()
         }
 
-        Observable.just(1)
-            .map { $0 * 2 }
-            .map(String.init)
-            .subscribe(onNext: { text in
-                print(text)
-            })
+        let (loginButtonEnabled, loading) = loginViewModel(
+            username: usernameTextField.rx.value.orEmpty,
+            password: passwordTextField.rx.value.orEmpty
+        )
+
+        loginButtonEnabled
+            .drive(loginButton.rx.isEnabled)
             .disposed(by: disposeBag)
 
         loginButton.rx.tap
