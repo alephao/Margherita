@@ -23,17 +23,17 @@ public final class LoginViewController: UIViewController {
             loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
-        
+
         Observable.just(1)
-            .map({ $0 * 2 })
+            .map { $0 * 2 }
             .map(String.init)
-            .subscribe(onNext: { text in 
+            .subscribe(onNext: { text in
                 print(text)
             })
             .disposed(by: disposeBag)
-        
+
         loginButton.rx.tap
-            .subscribe(onNext: { _ in 
+            .subscribe(onNext: { _ in
                 print("Tap")
             })
             .disposed(by: disposeBag)
