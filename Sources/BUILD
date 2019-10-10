@@ -8,6 +8,7 @@ swift_library(
     deps = [
         "@Rx//:RxCocoa",
         "@Rx//:RxSwift",
+        "@SnapKit",
     ],
 )
 

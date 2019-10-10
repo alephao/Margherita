@@ -1,9 +1,16 @@
 import RxCocoa
 import RxSwift
+import SnapKit
 import UIKit
 
 public final class LoginViewController: UIViewController {
     private let disposeBag = DisposeBag()
+
+    private let loginButton: UIButton = {
+        let e = UIButton(type: .system)
+        e.setTitle("Login", for: .normal)
+        return e
+    }()
 
     public init() {
         super.init(nibName: nil, bundle: nil)
@@ -15,14 +22,11 @@ public final class LoginViewController: UIViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-        let loginButton = UIButton(type: .system)
-        loginButton.setTitle("Login", for: .normal)
         view.addSubview(loginButton)
-        loginButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        ])
+
+        loginButton.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
 
         Observable.just(1)
             .map { $0 * 2 }

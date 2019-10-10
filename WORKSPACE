@@ -45,10 +45,21 @@ load(
 protobuf_deps()
 
 # Libraries
+
+# RxSwift
 http_archive(
     name = "Rx",
     build_file = "//Dependencies/Rx:BUILD",
     sha256 = "f3e7d7544369d7834ddb02e625ee59a1e909a744fe9dd742d5c95b551f106f6f",
     strip_prefix = "RxSwift-5.0.1",
     url = "https://github.com/ReactiveX/RxSwift/archive/5.0.1.tar.gz",
+)
+
+# SnapKit
+http_archive(
+    name = "SnapKit",
+    build_file = "//Dependencies/SnapKit:BUILD",
+    sha256 = "1d4b8cd2fed43c596c7cf8918ef59e0fc939e0e43d093ccd80aa63a2757500d4",
+    strip_prefix = "SnapKit-5.0.1",
+    url = "https://github.com/SnapKit/SnapKit/archive/5.0.1.tar.gz",
 )
