@@ -6,8 +6,8 @@ swift_library(
     srcs = glob(["Login/*.swift"]),
     module_name = "Login",
     deps = [
-        "//Dependencies:RxCocoa",
-        "//Dependencies:RxSwift",
+        "@Rx//:RxCocoa",
+        "@Rx//:RxSwift",
     ],
 )
 
