@@ -1,7 +1,7 @@
 # Builds the whole app
 .PHONY: build
 build:
-	bazel build //Sources:App
+	bazel build //Sources:App --apple_platform_type=ios
 
 .PHONY: format
 format:
