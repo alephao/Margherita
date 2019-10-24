@@ -6,10 +6,17 @@ swift_library(
     srcs = glob(["Login/*.swift"]),
     module_name = "Login",
     deps = [
+        "Terms",
         "@Rx//:RxCocoa",
         "@Rx//:RxSwift",
         "@SnapKit",
     ],
+)
+
+objc_library(
+    name = "Terms",
+    srcs = glob(["Terms/*.{h,m}"]),
+    module_name = "Terms",
 )
 
 swift_library(

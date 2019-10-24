@@ -1,6 +1,7 @@
 import RxCocoa
 import RxSwift
 import SnapKit
+import Terms
 import UIKit
 
 public final class LoginViewController: UIViewController {
@@ -50,9 +51,15 @@ public final class LoginViewController: UIViewController {
             .disposed(by: disposeBag)
 
         loginButton.rx.tap
-            .subscribe(onNext: { _ in
-                print("Tap")
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] _ in
+                self?.showTerms()
             })
             .disposed(by: disposeBag)
+    }
+
+    private func showTerms() {
+        let viewController = TermsViewController()
+        self.present(viewController, animated: true, completion: nil)
     }
 }
